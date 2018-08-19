@@ -11,17 +11,8 @@
   <% end %>
 
   <ul>
-    <% current_user.tweets.each do |tweet| %>
-      <li><%= tweet.content %></li>
-    <% end %>
-  </ul>
-
-  <hr>
-  <h2>Seguidores</h2>
-
-  <ul>
-    <% current_user.followers.each do |follower|%>
-    <li><%= User.find(id: follower.follower_id) %></li>
+    <% current_user.feed.each do |tweet| %>
+      <li><%= tweet.content %> - <%= tweet.user.email %></li>
     <% end %>
   </ul>
 
