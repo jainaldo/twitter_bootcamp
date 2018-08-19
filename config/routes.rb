@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :tweets, only: :create
   resources :users, only: [:index, :show]
+  resources :relationship
 end

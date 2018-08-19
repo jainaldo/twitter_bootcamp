@@ -1,7 +1,7 @@
 <h1>Estamos na home.</h1>
 
 <% if user_signed_in? %>
-  Olá, <%= current_user.email%>
+  Olá, <%= current_user.email %>
   <hr>
   <h2>Lista de tweets</h2>
 
@@ -15,6 +15,16 @@
       <li><%= tweet.content %></li>
     <% end %>
   </ul>
+
+  <hr>
+  <h2>Seguidores</h2>
+
+  <ul>
+    <% current_user.followers.each do |follower|%>
+    <li><%= User.find(id: follower.follower_id) %></li>
+    <% end %>
+  </ul>
+
   <br>
   <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
 <% else %>
